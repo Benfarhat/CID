@@ -1,11 +1,18 @@
 <?php
+use Symfony\Component\Debug\Debug;
 
 require 'vendor/autoload.php';
 
 
+
+Debug::enable();
+
+
 $containerBuilder = new \DI\ContainerBuilder();
 
-$containerBuilder->useAutoWiring(true);
+$containerBuilder->useAutoWiring(true); // à false tout pête sans le addDefinitions
+$containerBuilder->ignorePhpDocErrors(true);
+$containerBuilder->addDefinitions('config.php');
 
 $container = $containerBuilder->build();
 
@@ -16,14 +23,16 @@ $container = new DI\Container();
 
 */
 
+/*
+
 // On initialise PDO pour les besoins du controller
 $pdo = new PDO('mysql:host=localhost;dbname=testDI', 'root', '');
 $container->set(PDO::class, $pdo);
-
+*/
 // Innjection a toutes la classe
 // $container->get(App\BlogController::class)->index();
 
-// Avec call il fait de l'injection de dépendence
+// Avec call il fait de l'injection de dépendence en regardant la signature de la méthode index()
 $container->call([\App\BlogController::class, 'index']);
 
 /*

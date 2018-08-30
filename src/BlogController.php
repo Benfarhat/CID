@@ -4,13 +4,18 @@ namespace App;
 class BlogController {
 
 
-    public function index(\PDO $pdo) {
-        $posts = $pdo->query('SELECT * from posts')->fetchAll();
-        var_dump($posts);
+    public function index(PostTable $post) {
+        $posts = $post->findAll();
+        dump($posts);
+    }
+
+    public function index2(Database $database) {
+        $posts = $database->fetchAll('SELECT * from posts');
+        dump($posts);
     }
 
     public function demo() { // Pas besoin de PDO pourtant on l'instancie
-        var_dump('demo');
+        dump('demo');
     }
 
 }

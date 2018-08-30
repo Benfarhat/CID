@@ -5,7 +5,8 @@
     "require": {
         "php-di/php-di": "dev-master",
         "symfony/debug": "^4.2@dev",
-        "symfony/var-dumper": "^4.2@dev"
+        "symfony/var-dumper": "^4.2@dev",
+        "doctrine/annotations": "^2.0@dev"
     },
     "license": "MIT",
     "authors": [

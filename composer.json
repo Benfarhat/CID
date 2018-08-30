@@ -3,7 +3,9 @@
     "description": "Conteneur d'injection de dépendance",
     "type": "project",
     "require": {
-        "php-di/php-di": "dev-master"
+        "php-di/php-di": "dev-master",
+        "symfony/debug": "^4.2@dev",
+        "symfony/var-dumper": "^4.2@dev"
     },
     "license": "MIT",
     "authors": [
